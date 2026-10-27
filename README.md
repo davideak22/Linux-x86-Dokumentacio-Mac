@@ -66,7 +66,7 @@ Indítsd el a frissen telepített **UTM** alkalmazást a Mac-eden. Kövesd az al
 
 Az UTM nyitóképernyőjén kattints a **`Create a New Virtual Machine`** (Új virtuális gép létrehozása) gombra, vagy a bal felső sarokban található **`+`** ikonra.
 
-![1. lépés: Új virtuális gép létrehozása](./Screenshot%202026-10-26%20at%2017.13.png)
+![1. lépés: Új virtuális gép létrehozása](./utm/Screenshot%202026-10-26%20at%2017.13.png)
 
 ---
 
@@ -79,7 +79,7 @@ A megjelenő ablakban két opció fogad:
 
 Kattints a piros nyíllal jelölt **`Emulate`** lehetőségre!
 
-![2. lépés: Emulate kiválasztása](./Screenshot%202026-10-26%20at%2017.17.png)
+![2. lépés: Emulate kiválasztása](./utm/Screenshot%202026-10-26%20at%2017.17.png)
 
 ---
 
@@ -87,7 +87,7 @@ Kattints a piros nyíllal jelölt **`Emulate`** lehetőségre!
 
 A felkínált operációs rendszerek listájából válaszd a **`Linux`** opciót.
 
-![3. lépés: Linux kiválasztása](./Screenshot%202026-10-26%20at%2017.18.png)
+![3. lépés: Linux kiválasztása](./utm/Screenshot%202026-10-26%20at%2017.18.png)
 
 ---
 
@@ -101,7 +101,7 @@ Itt állíthatod be, hogy az emulált gép mekkora hardveres erőforrással gazd
 
 Kattints a **`Continue`** (Folytatás) gombra.
 
-![4. lépés: Hardver beállítások](./Screenshot%202026-10-26%20at%2017.19.png)
+![4. lépés: Hardver beállítások](./utm/Screenshot%202026-10-26%20at%2017.19.png)
 
 ---
 
@@ -113,7 +113,7 @@ A lemezkép konfigurációs ablakban:
 2. Kattints a **`Browse...`** gombra, és tallózd be a letöltések mappából az előzőleg letöltött Ubuntu Server ISO fájlt (pl. `ubuntu-...-live-server-amd64.iso`).
 3. Miután a fájl neve megjelent a mezőben, kattints a **`Continue`** gombra.
 
-![5. lépés: ISO lemezkép betallózása](./Screenshot%202026-10-26%20at%2017.23.png)
+![5. lépés: ISO lemezkép betallózása](./utm/Screenshot%202026-10-26%20at%2017.23.png)
 
 ---
 
@@ -126,7 +126,7 @@ Add meg a virtuális merevlemez méretét:
 
 Kattints a **`Continue`** gombra.
 
-![6. lépés: Merevlemez mérete](./Screenshot%202026-10-26%20at%2017.24.png)
+![6. lépés: Merevlemez mérete](./utm/Screenshot%202026-10-26%20at%2017.24.png)
 
 ---
 
@@ -138,7 +138,7 @@ A virtuális gép és a gazdagép (Mac) közötti kényelmes fájlátvitelhez je
 2. Válaszd ki az előzőleg létrehozott mappát a Mac-eden (pl. `Ubuntu-server`).
 3. Kattints a **`Continue`** gombra.
 
-![7. lépés: Megosztott mappa kijelölése](./Screenshot%202026-10-26%20at%2017.25.png)
+![7. lépés: Megosztott mappa kijelölése](./utm/Screenshot%202026-10-26%20at%2017.25.png)
 
 ---
 
@@ -154,7 +154,7 @@ Az összefoglaló ablakban:
   - Storage: **64 GB**
 - Kattints a **`Save`** (Mentés) gombra.
 
-![8. lépés: Összegzés és mentés](./Screenshot%202026-10-26%20at%2017.26.png)
+![8. lépés: Összegzés és mentés](./utm/Screenshot%202026-10-26%20at%2017.26.png)
 
 ---
 
@@ -162,7 +162,7 @@ Az összefoglaló ablakban:
 
 A virtuális gép mentése után az új géped megjelenik az UTM bal oldali oldalsávjában `AC-Linux-Server` néven. Kattints az UTM ablakában található nagy **Lejátszás (▶)** gombra a gép elindításához! A virtuális gép betölti a csatolt Ubuntu Server telepítőlemezt.
 
-![A virtuális gép elindítása az UTM-ben](./Screenshot%202026-10-26%20at%2017.27.png)
+![A virtuális gép elindítása az UTM-ben](./utm/Screenshot%202026-10-26%20at%2017.27.png)
 
 > [!TIP]
 > **Navigáció a szöveges telepítőfelületen (Subiquity):**
@@ -177,7 +177,7 @@ A virtuális gép mentése után az új géped megjelenik az UTM bal oldali olda
 
 A gép indulásakor a GNU GRUB bootmenü fogad. Válaszd a legfelső **`Try or Install Ubuntu Server`** opciót, majd üss **Enter**-t.
 
-![GRUB indítómenü](./unbranded/Timeline%201_01_01_06_57.jpg)
+![GRUB indítómenü](./linux_setup/Timeline%201_01_01_06_57.jpg)
 
 ---
 
@@ -185,7 +185,7 @@ A gép indulásakor a GNU GRUB bootmenü fogad. Válaszd a legfelső **`Try or I
 
 Válaszd ki a telepítő alapértelmezett nyelvét (ajánlott az **`English`** a nemzetközi terminológia és a könnyebb hibakeresés miatt), majd nyomj **Enter**-t.
 
-![Nyelvválasztás](./unbranded/Timeline%201_01_01_11_20.jpg)
+![Nyelvválasztás](./linux_setup/Timeline%201_01_01_11_20.jpg)
 
 ---
 
@@ -193,7 +193,7 @@ Válaszd ki a telepítő alapértelmezett nyelvét (ajánlott az **`English`** a
 
 Amennyiben az Ubuntu jelzi, hogy újabb verzió érhető el a telepítőből, választhatsz az új telepítő letöltése (_Update to the new installer_), vagy a jelenlegi folytatása (_Continue without updating_) között. Üss **Enter**-t a továbblépéshez.
 
-![Telepítő frissítése](./unbranded/Timeline%201_01_01_17_15.jpg)
+![Telepítő frissítése](./linux_setup/Timeline%201_01_01_17_15.jpg)
 
 ---
 
@@ -201,7 +201,7 @@ Amennyiben az Ubuntu jelzi, hogy újabb verzió érhető el a telepítőből, v�
 
 Válaszd ki a fizikai billentyűzeted kiosztását (pl. `English (US)` vagy `Hungarian`). A nyilakkal lépj le a képernyő alján lévő **`[ Done ]`** gombra, majd nyomj **Enter**-t.
 
-![Billentyűzetkiosztás](./unbranded/Timeline%201_01_01_18_34.jpg)
+![Billentyűzetkiosztás](./linux_setup/Timeline%201_01_01_18_34.jpg)
 
 ---
 
@@ -209,7 +209,7 @@ Válaszd ki a fizikai billentyűzeted kiosztását (pl. `English (US)` vagy `Hun
 
 Válaszd az alapértelmezett **`(X) Ubuntu Server`** opciót. Lépj a **`[ Done ]`** gombra, és nyomj **Enter**-t.
 
-![Telepítés típusa](./unbranded/Timeline%201_01_01_22_46.png)
+![Telepítés típusa](./linux_setup/Timeline%201_01_01_22_46.png)
 
 ---
 
@@ -217,7 +217,7 @@ Válaszd az alapértelmezett **`(X) Ubuntu Server`** opciót. Lépj a **`[ Done 
 
 A rendszer automatikusan észleli az emulált hálózati kártyát, és DHCP-n keresztül beállítja. Nem szükséges módosítani: lépj a **`[ Done ]`** gombra, és üss **Enter**-t.
 
-![Hálózati konfiguráció](./unbranded/Timeline%201_01_01_26_52.jpg)
+![Hálózati konfiguráció](./linux_setup/Timeline%201_01_01_26_52.jpg)
 
 ---
 
@@ -225,7 +225,7 @@ A rendszer automatikusan észleli az emulált hálózati kártyát, és DHCP-n k
 
 Hacsak nem használsz külön egyetemi proxy szervert az internethez, hagyd üresen a mezőt. Lépj a **`[ Done ]`** gombra, és nyomj **Enter**-t.
 
-![Proxy konfiguráció](./unbranded/Timeline%201_01_01_28_51.jpg)
+![Proxy konfiguráció](./linux_setup/Timeline%201_01_01_28_51.jpg)
 
 ---
 
@@ -233,7 +233,7 @@ Hacsak nem használsz külön egyetemi proxy szervert az internethez, hagyd üre
 
 A telepítő felajánlja a legközelebbi hivatalos Ubuntu tükörszervert (pl. `http://archive.ubuntu.com/ubuntu`). Hagyd az alapértelmezett értéken, lépj a **`[ Done ]`** gombra, és üss **Enter**-t.
 
-![Tükörszerver](./unbranded/Timeline%201_01_01_31_09.png)
+![Tükörszerver](./linux_setup/Timeline%201_01_01_31_09.png)
 
 ---
 
@@ -241,7 +241,7 @@ A telepítő felajánlja a legközelebbi hivatalos Ubuntu tükörszervert (pl. `
 
 Hagyd bejelölve az alapértelmezett **`(X) Use an entire disk`** (a teljes virtuális merevlemez használata) lehetőséget. Lépj a **`[ Done ]`** gombra, és nyomj **Enter**-t.
 
-![Tárhely kiosztás](./unbranded/Timeline%201_01_01_35_11.jpg)
+![Tárhely kiosztás](./linux_setup/Timeline%201_01_01_35_11.jpg)
 
 ---
 
@@ -249,7 +249,7 @@ Hagyd bejelölve az alapértelmezett **`(X) Use an entire disk`** (a teljes virt
 
 A telepítő áttekintést ad a virtuális meghajtó partícióiról (`/boot`, `/boot/efi`, root partíció). Ellenőrzés után lépj a **`[ Done ]`** gombra, és üss **Enter**-t.
 
-![Fájlrendszer összegzés](./unbranded/Timeline%201_01_01_38_27.jpg)
+![Fájlrendszer összegzés](./linux_setup/Timeline%201_01_01_38_27.jpg)
 
 ---
 
@@ -257,7 +257,7 @@ A telepítő áttekintést ad a virtuális meghajtó partícióiról (`/boot`, `
 
 Megjelenik egy biztonsági megerősítő párbeszédablak, amely rákérdez, hogy biztosan megkezded-e a partíciók írását. A nyilakkal válaszd a **`[ Continue ]`** (Folytatás) gombot, majd nyomj **Enter**-t.
 
-![Formázás megerősítése](./unbranded/Timeline%201_01_01_42_08.jpg)
+![Formázás megerősítése](./linux_setup/Timeline%201_01_01_42_08.jpg)
 
 ---
 
@@ -272,7 +272,7 @@ Töltsd ki a felhasználói adataidat:
 
 Miután mindegyik mezőt kitöltötted, lépj a **`[ Done ]`** gombra, és nyomj **Enter**-t.
 
-![Felhasználói profil](./unbranded/Timeline%201_01_01_43_57.png)
+![Felhasználói profil](./linux_setup/Timeline%201_01_01_43_57.png)
 
 ---
 
@@ -280,7 +280,7 @@ Miután mindegyik mezőt kitöltötted, lépj a **`[ Done ]`** gombra, és nyomj
 
 Válaszd a **`(X) Skip for now`** (Kihagyás egyelőre) opciót, majd lépj a **`[ Continue ]`** gombra, és üss **Enter**-t.
 
-![Ubuntu Pro kihagyása](./unbranded/Timeline%201_01_01_50_22.jpg)
+![Ubuntu Pro kihagyása](./linux_setup/Timeline%201_01_01_50_22.jpg)
 
 ---
 
@@ -291,7 +291,7 @@ Válaszd a **`(X) Skip for now`** (Kihagyás egyelőre) opciót, majd lépj a **
 
 A bejelölés után lépj a **`[ Done ]`** gombra, és nyomj **Enter**-t.
 
-![SSH konfiguráció](./unbranded/Timeline%201_01_01_52_08.png)
+![SSH konfiguráció](./linux_setup/Timeline%201_01_01_52_08.png)
 
 ---
 
@@ -299,7 +299,7 @@ A bejelölés után lépj a **`[ Done ]`** gombra, és nyomj **Enter**-t.
 
 A felkínált népszerű kiszolgálócsomagok közül a laborfeladatokhoz semmire sincs szükségünk. Nyomj **Enter**-t közvetlenül a **`[ Done ]`** gombon a továbblépéshez.
 
-![Kiszolgáló snap csomagok](./unbranded/Timeline%201_01_01_57_49.jpg)
+![Kiszolgáló snap csomagok](./linux_setup/Timeline%201_01_01_57_49.jpg)
 
 ---
 
@@ -307,7 +307,7 @@ A felkínált népszerű kiszolgálócsomagok közül a laborfeladatokhoz semmir
 
 A telepítő megkezdi a rendszerfájlok kiírását és a csomagok konfigurálását. Mivel a Mac egy x86_64 gépet emulál, ez a lépés gépsebességtől függően 5–15 percet is igénybe vehet.
 
-![Telepítési folyamat](./unbranded/Timeline%201_01_02_01_57.jpg)
+![Telepítési folyamat](./linux_setup/Timeline%201_01_02_01_57.jpg)
 
 ---
 
@@ -315,7 +315,7 @@ A telepítő megkezdi a rendszerfájlok kiírását és a csomagok konfigurálá
 
 Amikor a képernyő alsó részén megjelenik a **`[ Reboot Now ]`** gomb, nyomj **Enter**-t az újraindításhoz!
 
-![Telepítés kész - Reboot Now](./unbranded/Timeline%201_01_02_07_29.jpg)
+![Telepítés kész - Reboot Now](./linux_setup/Timeline%201_01_02_07_29.jpg)
 
 ---
 
@@ -326,9 +326,9 @@ Az újraindítás után (vagy a lemez leválasztásakor) állítsd le a virtuál
 1. Az UTM ablakának bal felső részén kattints a leállítás gombra, vagy a menüben válaszd az újraindítás/leállítás opciót (_Shuts down and stops the VM_).
 2. Erősítsd meg a leállítást.
 
-![Virtuális gép leállítása](./unbranded/Timeline%201_01_02_10_58.jpg)
+![Virtuális gép leállítása](./linux_setup/Timeline%201_01_02_10_58.jpg)
 
-![Leállítás jóváhagyása](./unbranded/Timeline%201_01_02_12_30.jpg)
+![Leállítás jóváhagyása](./linux_setup/Timeline%201_01_02_12_30.jpg)
 
 ---
 
@@ -338,7 +338,7 @@ A leállítást követően a virtuális gép `Stopped` (Leállítva) státuszba 
 
 - A képernyő alján a CD/DVD bejegyzésnél kattints a **`Clear`** gombra, hogy a telepítő ISO lemez eltávolításra kerüljön, és a gép a jövőben közvetlenül a telepített virtuális merevlemezről induljon!
 
-![Adatlap és csatolt perifériák](./Screenshot%202026-10-26%20at%2017.36.png)
+![Adatlap és csatolt perifériák](./utm/Screenshot%202026-10-26%20at%2017.36.png)
 
 ---
 
@@ -352,7 +352,7 @@ A leállítást követően a virtuális gép `Stopped` (Leállítva) státuszba 
 
 Jelöld ki az `AC-Linux-Server` gépet a listában, majd kattints a jobb felső sarokban található **Beállítások ikonra** (csúszkák / fogaskerék ikon), vagy kattints jobb gombbal a gép nevére és válaszd az **`Edit`** (Szerkesztés) menüpontot.
 
-![Beállítások megnyitása](./Screenshot%202026-10-26%20at%2017.371.png)
+![Beállítások megnyitása](./utm/Screenshot%202026-10-26%20at%2017.371.png)
 
 ---
 
@@ -363,7 +363,7 @@ A beállítások bal oldali menüjében keresd meg a **`Network`** (Hálózat) p
 1. Kattints a **Network Mode** legördülő menüre.
 2. Változtasd meg a beállítást _Shared Network_-ről a piros nyíllal jelölt **`Emulated VLAN`** értékre! (Ez a mód teszi lehetővé a QEMU belső port forward szabályainak kezelését).
 
-![Hálózati mód átállítása Emulated VLAN-ra](./Screenshot%202026-10-26%20at%2017.372.png)
+![Hálózati mód átállítása Emulated VLAN-ra](./utm/Screenshot%202026-10-26%20at%2017.372.png)
 
 ---
 
@@ -380,7 +380,7 @@ A Network beállításokon belül válaszd a **`Port Forwarding`** (Porttovább�
    - **Host Port:** **`2222`** _(ezen a porton keresztül fogunk kapcsolódni a Mac-ről)_
 3. Kattints a szabály melletti **`Save`**, majd a beállítóablak jobb alsó sarkában található **`Save`** gombra!
 
-![Porttovábbítási szabály rögzítése](./Screenshot%202026-10-26%20at%2017.381.png)
+![Porttovábbítási szabály rögzítése](./utm/Screenshot%202026-10-26%20at%2017.381.png)
 
 ---
 
