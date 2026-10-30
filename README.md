@@ -1,4 +1,4 @@
-# Útmutató: x86_64 Ubuntu Server emulálása Apple Silicon (M1/M2/M3/M4) Mac gépeken UTM segítségével
+# Útmutató: x86_64 Ubuntu Server emulálása Apple Silicon (M1/M2/M3/M4/M5/M6) Mac gépeken UTM segítségével
 
 > **Tantárgy:** Számítási rendszerek architektúrája (_Computer Systems Architecture_)  
 > **Célközönség:** Egyetemi hallgatók (kezdők számára is részletes, lépésről lépésre követhető formátumban)  
