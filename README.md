@@ -606,13 +606,17 @@ A VS Code megkérdezi, hogy hová mentse el ezt a kapcsolatot. Válaszd a leg el
 >
 > - **Mappa megnyitása:** A bal oldali _Explorer_ fülön kattints az **`Open Folder`** gombra, és válaszd ki a saját mappádat (pl. `/home/<felhasznalo>/` vagy a labor projektmappáját).
 > - **Beépített terminál:** A felső menüből válaszd a `Terminal -> New Terminal` opciót (vagy nyomd le a `Ctrl + ~` kombinációt). Ez közvetlenül a virtuális Ubuntu szerver terminálját nyitja meg a VS Code ablakának alján! Itt azonnal futtathatod az `nasm`, `gcc`, `actest` parancsokat, miközben fent kényelmesen szerkeszted az assembly forráskódot.
-> - **Automatikus futtatás Play (▶) gombbal:** Ha nem szeretnéd manuálisan begépelni a fordítási és futtatási parancsokat, állítsd be az alábbi **9.2.7-es pontban** részletezett Code Runner bővítményt!
+> - **Automatikus futtatás Play (▶) gombbal és actest tesztelés:** Ha nem szeretnéd manuálisan begépelni a fordítási, futtatási vagy actest tesztelési parancsokat, állítsd be az alábbi **9.2.7-es pontban** részletezett Code Runner konfigurációt!
 
 ---
 
-#### 9.2.7. NASM fordítás és futtatás automatizálása a Play (▶) gombbal (Code Runner konfigurálása)
 
-A terminálban történő manuális parancsgépelés helyett beállíthatod a VS Code-ot, hogy a szerkesztő jobb felső sarkában található **Lejátszás (Play ▶)** gombra kattintva (vagy gyorsbillentyűvel) automatikusan lefordítsa a megnyitott assembly fájlt a NASM-mel, összelinkelje az egyetemi `nlink` segédprogrammal és `libio` könyvtárral, majd azonnal elindítsa az integrált terminálban.
+#### 9.2.7. NASM fordítás, futtatás és automatikus `actest` tesztelés (Code Runner konfigurálása)
+
+A terminálban történő manuális parancsgépelés helyett beállíthatod a VS Code-ot kétféle kényelmes, automatizált futtatásra is:
+
+- **Normál programfuttatás (Play ▶ gomb vagy `Ctrl + Alt + N` / Mac: `Ctrl + Option + N`):** Automatikusan lefordítja az assembly kódot a NASM-mel, intelligensen észrevételezi, hogy az `io.inc` vagy a `mio.inc` könyvtárat használod-e, összelinkeli a megfelelő könyvtárral (`-lio` vagy `-lmio`) az egyetemi `nlink` segédprogrammal, és elindítja a kész programot az integrált terminálban.
+- **Automatikus `actest` tesztelés (`Ctrl + Option + K` vagy `Ctrl + Alt + K`):** Automatikusan lefordítja és összelinkeli a kódot, a megnyitott fájl nevéből kinyeri a laborfeladat számát (pl. `lab_01.asm` $\rightarrow$ `lab_1`), majd közvetlenül lefuttatja rá az egyetemi **`actest`** automatikus kiértékelő tesztcsomagot!
 
 Ehhez a népszerű **Code Runner** kiegészítőt és a VS Code felhasználói beállításait (`settings.json`) fogjuk használni.
 
