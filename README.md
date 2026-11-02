@@ -606,6 +606,89 @@ A VS Code megkérdezi, hogy hová mentse el ezt a kapcsolatot. Válaszd a leg el
 >
 > - **Mappa megnyitása:** A bal oldali _Explorer_ fülön kattints az **`Open Folder`** gombra, és válaszd ki a saját mappádat (pl. `/home/<felhasznalo>/` vagy a labor projektmappáját).
 > - **Beépített terminál:** A felső menüből válaszd a `Terminal -> New Terminal` opciót (vagy nyomd le a `Ctrl + ~` kombinációt). Ez közvetlenül a virtuális Ubuntu szerver terminálját nyitja meg a VS Code ablakának alján! Itt azonnal futtathatod az `nasm`, `gcc`, `actest` parancsokat, miközben fent kényelmesen szerkeszted az assembly forráskódot.
+> - **Automatikus futtatás Play (▶) gombbal:** Ha nem szeretnéd manuálisan begépelni a fordítási és futtatási parancsokat, állítsd be az alábbi **9.2.7-es pontban** részletezett Code Runner bővítményt!
+
+---
+
+#### 9.2.7. NASM fordítás és futtatás automatizálása a Play (▶) gombbal (Code Runner konfigurálása)
+
+A terminálban történő manuális parancsgépelés helyett beállíthatod a VS Code-ot, hogy a szerkesztő jobb felső sarkában található **Lejátszás (Play ▶)** gombra kattintva (vagy gyorsbillentyűvel) automatikusan lefordítsa a megnyitott assembly fájlt a NASM-mel, összelinkelje az egyetemi `nlink` segédprogrammal és `libio` könyvtárral, majd azonnal elindítsa az integrált terminálban.
+
+Ehhez a népszerű **Code Runner** kiegészítőt és a VS Code felhasználói beállításait (`settings.json`) fogjuk használni.
+
+##### 1. lépés: A Code Runner bővítmény telepítése
+
+1. Nyisd meg a VS Code-ot, és kattints a bal oldali sávban található **Extensions** (Bővítmények) ikonra (vagy nyomd le a `Cmd + Shift + X` billentyűkombinációt).
+2. A keresőmezőbe írd be: `Code Runner`.
+3. Keresd meg a **Jun Han** által készített hivatalos **`Code Runner`** bővítményt.
+4. Kattints az **`Install`** (vagy amennyiben SSH kapcsolaton keresztül dolgozol, az **`Install in SSH: localhost`**) gombra. A sikeres telepítést követően megjelenik az _"Extension is enabled on 'SSH: localhost'"_ állapot.
+
+![Code Runner bővítmény telepítése](./vscode/Screenshot%202026-11-02%20at%2012.38.35.png)
+
+---
+
+##### 2. lépés: A Felhasználói beállítások (User Settings JSON) megnyitása
+
+1. Nyisd meg a parancspalettát a **`Cmd + Shift + P`** (vagy **`F1`**) billentyűvel.
+2. Írd be a keresőbe: `Preferences: Open User Settings (JSON)`.
+3. Válaszd ki a kékkel kiemelt **`Preferences: Open User Settings (JSON)`** opciót (amely mellett egy kis fogaskerék ikon látható), majd nyomj **Enter**-t. Ekkor megnyílik a felhasználói `settings.json` fájl.
+
+![User Settings JSON megnyitása](./vscode/Screenshot%202026-11-02%20at%2012.39.05.png)
+
+---
+
+##### 3. lépés: A futtatási konfiguráció hozzáadása a `settings.json` fájlhoz
+
+1. Görgess le a `settings.json` fájl aljára.
+2. Az utolsó meglévő beállítás sora után tegyél egy **vesszőt** (`,`), majd a legkülső záró kapcsos zárójel (`}`) elé illeszd be az alábbi konfigurációt:
+
+```json
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.executorMap": {
+    "assembly": "cd $dir && nasm -f elf64 $fileName && ./nlink $fileNameWithoutExt.o -lmio -o program && ./program",
+    "nasm": "cd $dir && nasm -f elf64 $fileName && ./nlink $fileNameWithoutExt.o -lmio -o program && ./program"
+  },
+  "code-runner.executorMapByGlob": {
+    "*.asm": "cd $dir && nasm -f elf64 $fileName && ./nlink $fileNameWithoutExt.o -lmio -o program && ./program"
+  }
+```
+
+3. Mentsd el a módosításokat a **`Cmd + S`** billentyűparanccsal.
+
+![Code Runner konfiguráció a settings.json-ben](./vscode/Screenshot%202026-11-02%20at%2012.43.23.png)
+
+---
+
+##### 4. lépés: Hogyan működik ez a konfiguráció?
+
+- **`code-runner.clearPreviousOutput: true`:** Minden új futtatás előtt automatikusan törli az előző kimenetet a terminálból, így mindig a tiszta, legfrissebb eredményt látod.
+- **`code-runner.runInTerminal: true`:** **Kiemelten fontos beállítás!** A programot nem a csak olvasható _Output_ fülön, hanem a VS Code beépített integrált termináljában futtatja. Ez elengedhetetlen a laborfeladatoknál, mert így a program képes billentyűzetes bemenetet kérni és beolvasni a felhasználótól (pl. a `libio` könyvtár `read_int`, `read_string` stb. függvényeivel).
+- **`code-runner.saveFileBeforeRun: true`:** Futtatás előtt automatikusan elmenti az éppen szerkesztett forrásfájlt, így a legfrissebb kód fog lefordulni anélkül, hogy külön mentened kellene.
+- **`code-runner.executorMap` és `executorMapByGlob`:** Meghatározza, hogy milyen parancslánc fusson le `.asm` és assembly fájlok esetén:
+  1. `cd $dir`: Belép abba a könyvtárba, ahol a futtatandó forrásfájl található.
+  2. `nasm -f elf64 $fileName`: A NASM segítségével 64 bites Linux ELF objektumfájllá (`.o`) fordítja a forrásfájlt.
+  3. `./nlink $fileNameWithoutExt.o -lmio -o program`: A kurzushoz használt `nlink` linkerrel és a `-lmio` könyvtárral összelinkeli az objektumfájlt, létrehozva a futtatható `program` állományt.
+  4. `./program`: Azonnal elindítja a kész programot a terminálban.
+
+---
+
+##### 5. lépés: Használat – Kód futtatása egyetlen kattintással
+
+1. Nyiss meg egy tetszőleges assembly fájlt (pl. `feladat.asm`) a VS Code-ban.
+2. Kattints a szerkesztőfelület jobb felső sarkában megjelenő fehér **Lejátszás (Play ▶)** ikonra, vagy használd a **`Ctrl + Alt + N`** billentyűparancsot.
+3. A VS Code alján automatikusan megjelenik az integrált terminál, végrehajtja a fordítást és linkelést, majd elindítja a futtatható programot!
+
+> [!IMPORTANT]
+> **Feltételek a hibátlan futáshoz:**
+>
+> 1. **Fejlesztői eszközök megléte:** A virtuális Ubuntu szerveren telepítve kell lennie a `nasm` és GCC csomagoknak (ha még nem tetted meg, kövesd a következő, [9.3-as pontot](#93-alapvető-assembly-fejlesztői-eszközök-telepítése-az-ubuntun)).
+> 2. **Laboratóriumi segédfájlok:** A parancssorban szereplő `./nlink` és `-lmio` megköveteli, hogy abban a mappában, ahol az assembly kódod van (`$dir`), jelen legyen az **`nlink`** linker és a könyvtárfájlok (`libio.a`, `io.inc`).
+> 3. **Futtatási jogosultság:** Ha a futtatáskor `permission denied` hibaüzenetet kapsz az `nlink`-re, az Ubuntu termináljában egyszeri alkalommal adj rá futtatási jogot:
+>    ```bash
+>    chmod +x nlink
+>    ```
 
 ---
 
